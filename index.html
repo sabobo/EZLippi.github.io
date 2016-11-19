@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Lb.GitHub.io by sabobo</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Lb.GitHub.io</h1>
+        <p>这是我的个人网站的源码，欢迎fork。</p>
+
+        <p class="view"><a href="https://github.com/sabobo/LB.github.io">View the Project on GitHub <small>sabobo/LB.github.io</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/sabobo/LB.github.io/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/sabobo/LB.github.io/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/sabobo/LB.github.io">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <hr>
+
+<p>layout: default</p>
+
+<h2>
+<a id="title-首页home" class="anchor" href="#title-%E9%A6%96%E9%A1%B5home" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>title: "首页：Home"</h2>
+
+
+
+
+
+<div id="index">
+    <div>
+         <div>
+        <div>
+        <ul>
+    {% for post in paginator.posts %}
+    <li>    
+    <h2>
+<a id="-posttitle-" class="anchor" href="#-posttitle-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="%7B%7B%20post.url%20%7D%7D">{{ post.title }}</a>
+</h2>
+    {{ post.date | date_to_string }}
+    
+    <hr>
+    <p>{% if post.excerpt.size &gt; 32 %}{{ post.excerpt }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 160 }}{% endif %}</p>
+        <p> <a href="%7B%7B%20post.url%20%7D%7D">阅读全文 » </a></p>
+    <hr>
+    </li>
+    {% endfor %}
+    </ul>
+    
+    <ul>
+      {% if paginator.previous_page %} {% if paginator.previous_page == 1 %}
+      <li>
+        <a href="%7B%7B%20site.url%20%7D%7D/">
+          ← Older
+        </a>
+      </li>
+      {% else %}
+      <li>
+        <a href="%7B%7B%20site.url%20%7D%7D/page%7B%7B%20paginator.previous_page%20%7D%7D">
+          ← Older
+        </a>
+      </li>
+      {% endif %} {% endif %} {% if paginator.next_page %}
+      <li>
+        <a href="%7B%7B%20site.url%20%7D%7D/page%7B%7B%20paginator.next_page%20%7D%7D">
+          Newer →
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+    </div>
+    
+
+     
+       {% for category in site.categories %}
+    <div>
+
+          <ul>
+            {% for posts in category  %}
+              {% for post in posts %}
+                {% if post.url %}
+        <li>
+                  <a href="%7B%7B%20post.url%20%7D%7D">
+                    <h2>
+<a id="-posttitle--1" class="anchor" href="#-posttitle--1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>{{ post.title }}</h2>
+                    {{ post.date | date: "%b %-d, %Y" }}
+                  </a>
+        </li>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </ul>
+    </div>
+        {% endfor %}
+    
+     </div>
+
+</div>
+
+<p></p>
+</div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/sabobo">sabobo</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
